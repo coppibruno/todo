@@ -47,7 +47,7 @@ export const RightSide = styled.div`
        }
 
        span {
-           barkground: #FFF;
+           background: #FFF;
            color: #EE6B26;
            padding: 3px 7px;
            border-radius: 50%;
