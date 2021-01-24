@@ -72,7 +72,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -80,15 +80,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/filter/all",
-					"protocol": "http",
+					"raw": "{{url}}/task/filter/all/11:11:11:11:11:11",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
+						"task",
 						"filter",
-						"all"
+						"all",
+						"11:11:11:11:11:11"
 					]
 				}
 			},
@@ -144,11 +144,32 @@
 		},
 		{
 			"name": "late",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "{{url}}/task/filter/late/11:11:11:11:11:11",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"filter",
+						"late",
+						"11:11:11:11:11:11"
+					]
 				}
 			},
 			"response": []
@@ -163,7 +184,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -171,14 +192,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/task/filter/today",
+					"raw": "{{url}}/task/filter/today/11:11:11:11:11:11",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"task",
 						"filter",
-						"today"
+						"today",
+						"11:11:11:11:11:11"
 					]
 				}
 			},
@@ -194,7 +216,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -202,14 +224,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/task/filter/today",
+					"raw": "{{url}}/task/filter/week/11:11:11:11:11:11",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"task",
 						"filter",
-						"today"
+						"week",
+						"11:11:11:11:11:11"
 					]
 				}
 			},
@@ -225,7 +248,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -233,14 +256,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/task/filter/month",
+					"raw": "{{url}}/task/filter/month/11:11:11:11:11:11",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"task",
 						"filter",
-						"month"
+						"month",
+						"11:11:11:11:11:11"
 					]
 				}
 			},
@@ -256,7 +280,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,14 +288,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/task/filter/year",
+					"raw": "{{url}}/task/filter/year/11:11:11:11:11:11",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"task",
 						"filter",
-						"year"
+						"year",
+						"11:11:11:11:11:11"
 					]
 				}
 			},
