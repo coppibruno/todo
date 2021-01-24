@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "ba0d6282-3ceb-4edd-960a-8d2263bd0f3b",
+		"name": "todo-react-node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\",\r\n    \"type\": 1,\r\n    \"tittle\": \"Comprar café\",\r\n    \"description\": \"Em tal mercado está na promoção\",\r\n    \"when\": \"2021-01-23T17:30:00.000\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\",\r\n    \"type\": 1,\r\n    \"tittle\": \"Café\",\r\n    \"description\": \"Em tal mercado está na promoção\",\r\n    \"when\": \"2021-01-23T17:30:00.000\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/task/600c84bf6c6d25348413e92b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"600c84bf6c6d25348413e92b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/filter/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"filter",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/600c84bf6c6d25348413e92b",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"600c84bf6c6d25348413e92b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "done",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task/done/600c923460562c0be0639eb8/true",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"done",
+						"600c923460562c0be0639eb8",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "late",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "today",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/task/filter/today",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"filter",
+						"today"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "week",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/task/filter/today",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"filter",
+						"today"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "month",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/task/filter/month",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"filter",
+						"month"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "year",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"macaddress\": \"11:11:11:11:11:11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/task/filter/year",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"filter",
+						"year"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
