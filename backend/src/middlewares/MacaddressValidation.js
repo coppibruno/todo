@@ -1,5 +1,5 @@
 const MacaddressValidation = (req, res, next) => {
-    if (!req.body.macaddress){
+    if (!req.params.macaddress){
         return res.status(400).json( { error: 'macaddress é obrigatório'} );
     }
 
