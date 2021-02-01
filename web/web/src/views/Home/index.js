@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './styles';
+
+import api from '../../services/api';
 
 //NOSSOS COMPONENTES
 import Header from '../../components/Header';
@@ -9,11 +11,52 @@ import TaskCard from '../../components/TaskCard';
 
 function Home() {
   
-  const [filterActived, setFilterActived] = useState('today');
+  const [filterActived, setFilterActived] = useState('all');
+  const [tasks, setTasks] = useState([]);
+  const [lateCount, setLateCount] = useState();
+
+  async function loadTasks(){
+    await api.get(`/task/filter/${filterActived}/11:11:11:11:11:11`)
+    .then(response => {
+
+      setTasks( response.data );
+
+    }).catch(error => {
+
+      console.error(error);
+
+    });
+  }
+
+  async function lateVerify(){
+    await api.get(`/task/filter/late/11:11:11:11:11:11`)
+    .then(response => {
+      
+      setLateCount(response.data.length)
+
+    }).catch(error => {
+
+      console.error(error);
+
+    });
+  }
+
+  function Notification(){
+    console.log('entra aqui!');
+    setFilterActived('late');
+  }
+
+  //AO RECARREGAR A TELA OU O ESTADO FILTERACTIVED MUDAR CHAMA ESSE BLOCO
+  useEffect(() => {
+
+    loadTasks();
+    lateVerify();
+
+  }, [filterActived]);
 
   return (
     <S.Container>
-      <Header/>
+      <Header lateCount={lateCount} clickNotification={Notification} />
 
       <S.FilterArea>
 
@@ -44,16 +87,11 @@ function Home() {
       </S.Title>
 
       <S.Content>
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
+        {
+          tasks.map(t => (
+            <TaskCard type={t.type} title={t.tittle} when={t.when}/>
+          ))
+        }
       </S.Content>
 
       <Footer/>

@@ -29,11 +29,16 @@ export const RightSide = styled.div`
     justify-content: flex-end;
 
 
-    a {
+    a, button {
         color: #FFF;
         font-weight: bold;
         text-decoration: none;
         margin: 0 10px;
+
+        button {
+            background: none;
+            border: none;
+        }
 
         &:hover{
             color: #EE6B26
@@ -45,6 +50,10 @@ export const RightSide = styled.div`
             width: 25px;
             height: 30px;
        }
+
+       
+       background: none;
+       border: none;
 
        span {
            background: #FFF;
@@ -59,6 +68,7 @@ export const RightSide = styled.div`
 
        &:hover { 
            opacity: 0.5;
+           cursor: pointer;
        }
 
     }
