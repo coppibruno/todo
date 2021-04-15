@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import * as S from './styles';
 
 import api from '../../services/api';
+import isConnected from '../../utils/isConnected';
 
 //NOSSOS COMPONENTES
 import Header from '../../components/Header';
@@ -13,10 +15,10 @@ function Home() {
   
   const [filterActived, setFilterActived] = useState('all');
   const [tasks, setTasks] = useState([]);
-  const [lateCount, setLateCount] = useState();
+  const [redirect, setRedirect] = useState(false);
 
   async function loadTasks(){
-    await api.get(`/task/filter/${filterActived}/11:11:11:11:11:11`)
+    await api.get(`/task/filter/${filterActived}/${isConnected}`)
     .then(response => {
 
       setTasks( response.data );
@@ -28,35 +30,25 @@ function Home() {
     });
   }
 
-  async function lateVerify(){
-    await api.get(`/task/filter/late/11:11:11:11:11:11`)
-    .then(response => {
-      
-      setLateCount(response.data.length)
 
-    }).catch(error => {
-
-      console.error(error);
-
-    });
-  }
 
   function Notification(){
-    console.log('entra aqui!');
     setFilterActived('late');
   }
 
   //AO RECARREGAR A TELA OU O ESTADO FILTERACTIVED MUDAR CHAMA ESSE BLOCO
   useEffect(() => {
+    if (!isConnected)
+    setRedirect(true);
 
     loadTasks();
-    lateVerify();
 
   }, [filterActived]);
 
   return (
     <S.Container>
-      <Header lateCount={lateCount} clickNotification={Notification} />
+      { redirect && <Redirect to="/qrcode" /> }
+      <Header clickNotification={Notification} />
 
       <S.FilterArea>
 
@@ -89,7 +81,9 @@ function Home() {
       <S.Content>
         {
           tasks.map(t => (
-            <TaskCard type={t.type} title={t.tittle} when={t.when}/>
+            <Link to={`/task/${t._id}`}>
+              <TaskCard type={t.type} title={t.tittle} when={t.when} done={t.done}/>
+            </Link>
           ))
         }
       </S.Content>

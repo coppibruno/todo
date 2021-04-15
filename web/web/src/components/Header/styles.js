@@ -35,10 +35,18 @@ export const RightSide = styled.div`
         text-decoration: none;
         margin: 0 10px;
 
-        button {
-            background: none;
-            border: none;
+        &:hover{
+            color: #EE6B26
         }
+    }
+    input {
+        border: none;
+        background: none;
+        font-size: 16px;
+        color: #FFF;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0 10px;
 
         &:hover{
             color: #EE6B26
@@ -71,6 +79,7 @@ export const RightSide = styled.div`
            cursor: pointer;
        }
 
+       
     }
 
     .dividir::after {
@@ -78,4 +87,6 @@ export const RightSide = styled.div`
         margin: 0 10px;
         color: #FFF;
     }
+
+    
 `
