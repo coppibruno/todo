@@ -10,7 +10,7 @@ router.post('/', TaskValidation, TaskController.create);
 router.put('/:id', TaskValidation, TaskController.update);
 
 router.get('/filter/all/:macaddress', MacaddressValidation, TaskController.all);
-router.get('/:id', ParamIdValidation, TaskController.getById);
+router.get('/:id', TaskController.getById);
 
 router.delete('/:id', TaskController.delete);
 router.put('/done/:id/:done', TaskController.done);
